@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/bluesthrive"
+        android:padding="20dp"
+        android:background="@drawable/topbar"
+        >
+
+        <ImageView
+            android:id="@+id/left_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/baseline_arrow_back_ios_24" />
+
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="93dp"
+            android:layout_marginEnd="78dp"
+            android:layout_toStartOf="@+id/thrivemenuIcon"
+            android:layout_toEndOf="@+id/left_icon"
+            android:text="Stories"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/greensthrive"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/thrivemenuIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/baseline_menu_24" />
+    </RelativeLayout>
+
+    <!-- RecyclerView to display messages -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMessages"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="18dp" />
+
+    <!-- Input bar at the bottom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="@color/bluesthrive"
+        android:orientation="horizontal"
+        android:layout_marginBottom="77dp"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/editTextMessage"
+            android:layout_width="285dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="Type a message"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@android:color/white" />
+
+        <ImageButton
+            android:id="@+id/buttonSend"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="15dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Send"
+            android:src="@drawable/baseline_send_24" />
+    </LinearLayout>
+
+</LinearLayout>

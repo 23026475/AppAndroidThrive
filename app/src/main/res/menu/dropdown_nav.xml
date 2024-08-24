@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:icon="@drawable/baseline_menu_24">
+
+    <item
+        android:id="@+id/nav_chats"
+        android:title="Chats" />
+    <item
+        android:id="@+id/nav_calls"
+        android:title="Calls" />
+    <item
+        android:id="@+id/emergency"
+        android:title="EMERGENCY" />
+    <item android:title="Call Schedule" />
+    <item
+        android:id="@+id/logOut"
+        android:title="Log Out" />
+</menu>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.updates.UpdatesFragment">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/bluesthrive"
+        android:padding="20dp"
+        android:background="@drawable/topbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/left_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/baseline_arrow_back_ios_24" />
+
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="93dp"
+            android:layout_marginEnd="78dp"
+            android:layout_toStartOf="@+id/thrivemenuIcon"
+            android:layout_toEndOf="@+id/left_icon"
+            android:text="Updates"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/greensthrive"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/thrivemenuIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/baseline_menu_24" />
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/madeRequest"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_radii"
+        android:text="Made Requests"
+        android:textColor="@color/bluesthrive"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/callSchedule"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/makeRequest" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/callSchedule"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_radii"
+        android:text="Call Schedules"
+        android:textColor="@color/bluesthrive"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/madeRequest" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/makeRequest"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/button_radii"
+        android:text="Make Request"
+        android:textColor="@color/bluesthrive"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Buttonchats"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="178dp"
+        android:background="@drawable/button_radii"
+        android:text="Chats"
+        android:textColor="@color/bluesthrive"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/callSchedule" />
+
+    <TextView
+        android:id="@+id/Updates"
+        android:layout_width="64dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="186dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="80dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/makeRequest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>

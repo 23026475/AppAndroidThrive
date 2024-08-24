@@ -1,0 +1,7 @@
+<resources>
+
+    <style name="Widget.Theme.Thriv31.MyView" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:background">@color/gray_600</item>
+        <item name="exampleColor">@color/bluesthrive</item>
+    </style>
+</resources>
