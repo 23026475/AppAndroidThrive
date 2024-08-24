@@ -61,6 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="24dp"
+            android:textColor="@color/bluesthrive"
+
             android:text="Username"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -69,6 +71,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textColor="@color/bluesthrive"
+
             android:layout_marginBottom="24dp"
             android:text="0#########"
             android:textSize="20sp"
