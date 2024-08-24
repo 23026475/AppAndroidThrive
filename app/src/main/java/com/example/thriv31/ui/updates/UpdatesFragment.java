@@ -53,7 +53,7 @@ public class UpdatesFragment extends Fragment {
         });
 
         Button callSchedule = view.findViewById(R.id.callSchedule);
-        madeRequest.setOnClickListener(new View.OnClickListener() {
+        callSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Call_Schedule.class);
