@@ -1,88 +1,85 @@
 package com.example.thriv31;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.content.Intent;
 import android.widget.Toast;
-import android.view.View;
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class UserRegister extends AppCompatActivity {
-    private EditText editTextFirstName, editTextLastName, editTextContact, editTextEmail, editTextPassword, editTextConfirmPassword;
-    private Button buttonClearForm, buttonRegister;
+
+    private EditText firstName, lastName, contactNumber, email, password, confirmPassword;
+    private Button registerButton, clearFormButton, loginButton;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_register);
 
-        editTextFirstName = findViewById(R.id.editTextFirstName);
-        editTextLastName = findViewById(R.id.editTextLastName);
-        editTextContact = findViewById(R.id.editTextContact);
-        editTextEmail = findViewById(R.id.editTextEmail);
-        editTextPassword = findViewById(R.id.editTextPassword);
-        editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
-        buttonClearForm = findViewById(R.id.ClearForm);
-        buttonRegister = findViewById(R.id.buttonRegister);
+        databaseHelper = new DatabaseHelper(this);
 
-        // Clear form button
-        buttonClearForm.setOnClickListener(new View.OnClickListener() {
+        firstName = findViewById(R.id.firstName);
+        lastName = findViewById(R.id.lastName);
+        contactNumber = findViewById(R.id.contactNumber);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        confirmPassword = findViewById(R.id.confirmPassword);
+        registerButton = findViewById(R.id.registerButton);
+        clearFormButton = findViewById(R.id.clearFormButton);
+        loginButton = findViewById(R.id.loginButton);
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                clearForm();
+            public void onClick(View view) {
+                String firstNameInput = firstName.getText().toString();
+                String lastNameInput = lastName.getText().toString();
+                String contactNumberInput = contactNumber.getText().toString();
+                String emailInput = email.getText().toString();
+                String passwordInput = password.getText().toString();
+                String confirmPasswordInput = confirmPassword.getText().toString();
+
+                if (TextUtils.isEmpty(firstNameInput) || TextUtils.isEmpty(lastNameInput) ||
+                        TextUtils.isEmpty(contactNumberInput) || TextUtils.isEmpty(emailInput) ||
+                        TextUtils.isEmpty(passwordInput) || TextUtils.isEmpty(confirmPasswordInput)) {
+                    Toast.makeText(UserRegister.this, "All fields are required", Toast.LENGTH_SHORT).show();
+                } else if (!passwordInput.equals(confirmPasswordInput)) {
+                    Toast.makeText(UserRegister.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                } else {
+                    boolean isInserted = databaseHelper.insertUserData(firstNameInput, lastNameInput, contactNumberInput, emailInput, passwordInput);
+                    if (isInserted) {
+                        Toast.makeText(UserRegister.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(UserRegister.this, Login.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(UserRegister.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
 
-        // Register button
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
+        clearFormButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                registerUser();
+            public void onClick(View view) {
+                firstName.setText("");
+                lastName.setText("");
+                contactNumber.setText("");
+                email.setText("");
+                password.setText("");
+                confirmPassword.setText("");
             }
         });
-    }
 
-    private void clearForm() {
-        editTextFirstName.setText("");
-        editTextLastName.setText("");
-        editTextContact.setText("");
-        editTextEmail.setText("");
-        editTextPassword.setText("");
-        editTextConfirmPassword.setText("");
-    }
-
-    private void registerUser() {
-        String firstName = editTextFirstName.getText().toString().trim();
-        String lastName = editTextLastName.getText().toString().trim();
-        String contact = editTextContact.getText().toString().trim();
-        String email = editTextEmail.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
-        String confirmPassword = editTextConfirmPassword.getText().toString().trim();
-
-        if (password.equals(confirmPassword)) {
-            // Call method to save data to the database
-            saveUserDataToDatabase(firstName, lastName, contact, email, password);
-        } else {
-            Toast.makeText(UserRegister.this, "Passwords do not match!", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void saveUserDataToDatabase(String firstName, String lastName, String contact, String email, String password) {
-        // Send data to PHP script hosted on XAMPP
-        // Use Volley or Retrofit for network requests
-
-        // Example with Volley
-        // String url = "http://your-server-ip/register_user.php";
-        // Code to make POST request goes here
-
-        // After successful registration, go to login page
-        Intent intent = new Intent(UserRegister.this, Login.class);
-        startActivity(intent);
-        finish();
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserRegister.this, Login.class);
+                startActivity(intent);
+            }
+        });
     }
 }
