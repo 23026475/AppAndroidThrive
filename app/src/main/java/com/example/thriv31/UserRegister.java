@@ -28,7 +28,7 @@ public class UserRegister extends AppCompatActivity {
     private DatabaseHelper databaseHelper;
 
     private void registerUser(final String firstName, final String lastName, final String contactNumber, final String email, final String password) {
-        String url = "http://<Your-PC-IP>/user_register.php"; // Replace <Your-PC-IP> with your actual PC's IP address
+        String url = "http:// 192.168.1.173/user_register.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
