@@ -37,6 +37,8 @@ android {
 dependencies {
 
 
+
+    androidTestImplementation(libs.volley)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
@@ -47,6 +49,7 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.legacy.support.v4)
     implementation(libs.recyclerview)
+    implementation(libs.volley)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
